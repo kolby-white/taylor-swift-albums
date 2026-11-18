@@ -7,7 +7,7 @@ A revised web version of Kolby White's ArcGIS StoryMap
 **What changed and why:** [recommendations.html](recommendations.html)
 
 ## Additions
-- Eras Tour map: all 149 shows by city, filterable by leg (Leaflet + CARTO/OSM basemap)
+- Eras Tour map: all 149 shows by city, filterable by leg (Leaflet + Esri gray canvas basemap)
 - "Where the songs come from" map of nine places tied to specific albums
 - Clickable 2006–2026 timeline that marks the Big Machine → Republic switch and the re-recordings
 - An original summary for each album, with the Wikipedia excerpts kept and credited in collapsible blocks
