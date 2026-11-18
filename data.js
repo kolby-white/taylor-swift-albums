@@ -168,3 +168,50 @@ const TOUR = [
 ];
 const CANCELLED = [["Vienna", "Austria", 48.207, 16.420, 3]];
 const WIKI = W;
+
+/* ---------- Evolution: editorial ratings ----------
+   Order of values follows ALBUMS: debut, fearless, speaknow, red, 1989, reputation,
+   lover, folklore, evermore, midnights, ttpd, showgirl. */
+const GENRES = [
+  { name: "Country", v: [3, 3, 2, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+    ex: { debut: "Tim McGraw", fearless: "Fifteen", speaknow: "Mean", red: "Begin Again", lover: "Soon You'll Get Better (feat. The Chicks)", evermore: "no body, no crime (feat. Haim)" } },
+  { name: "Pop", v: [1, 2, 2, 3, 3, 3, 3, 1, 1, 3, 2, 3],
+    ex: { fearless: "You Belong with Me", speaknow: "Mine", red: "22", "1989": "Shake It Off", reputation: "Delicate", lover: "Lover", midnights: "Anti-Hero", ttpd: "Fortnight", showgirl: "The Fate of Ophelia" } },
+  { name: "Rock / pop-rock", v: [0, 1, 2, 2, 0, 0, 1, 0, 0, 0, 0, 1],
+    ex: { fearless: "Change", speaknow: "Better than Revenge", red: "State of Grace", lover: "Paper Rings" } },
+  { name: "Electronic / synth", v: [0, 0, 0, 2, 3, 3, 2, 0, 0, 3, 2, 1],
+    ex: { red: "I Knew You Were Trouble", "1989": "Style", reputation: "...Ready for It?", lover: "Cruel Summer", midnights: "Lavender Haze", ttpd: "Down Bad" } },
+  { name: "Folk / indie / alternative", v: [0, 0, 0, 1, 0, 0, 0, 3, 3, 1, 2, 0],
+    ex: { folklore: "cardigan", evermore: "willow", midnights: "Would've, Could've, Should've", ttpd: "The Tortured Poets Department" } }
+];
+const LEVELS = ["Absent", "A touch", "Significant", "Primary sound"];
+
+const THEMES = [
+  { name: "Romance", v: [2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2], ex: { debut: "Our Song", fearless: "Love Story", "1989": "Wildest Dreams", reputation: "Call It What You Want", lover: "Lover", showgirl: "Wood" } },
+  { name: "Heartbreak", v: [2, 2, 2, 2, 1, 0, 1, 2, 2, 1, 2, 0], ex: { debut: "Teardrops on My Guitar", red: "All Too Well", folklore: "exile", evermore: "champagne problems", ttpd: "So Long, London" } },
+  { name: "Growing up", v: [2, 2, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0], ex: { debut: "The Outside", fearless: "Fifteen", speaknow: "Never Grow Up", folklore: "seven" } },
+  { name: "Fame and image", v: [0, 0, 1, 0, 2, 2, 1, 0, 0, 2, 2, 2], ex: { speaknow: "Mean", "1989": "Blank Space", reputation: "Look What You Made Me Do", lover: "The Man", midnights: "Anti-Hero", ttpd: "Who's Afraid of Little Old Me?", showgirl: "The Life of a Showgirl" } },
+  { name: "Fiction and characters", v: [0, 1, 0, 0, 0, 0, 0, 2, 2, 0, 1, 1], ex: { fearless: "Love Story", folklore: "betty", evermore: "dorothea", showgirl: "The Fate of Ophelia" } },
+  { name: "Self-reflection", v: [1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2, 1], ex: { speaknow: "Innocent", midnights: "Anti-Hero", ttpd: "I Can Do It with a Broken Heart" } },
+  { name: "Nostalgia and memory", v: [1, 1, 1, 2, 1, 0, 1, 2, 2, 1, 1, 0], ex: { red: "All Too Well", folklore: "seven", evermore: "'tis the damn season" } }
+];
+const THEME_LEVELS = ["Not a focus", "Present", "Central"];
+
+const PHASES = [
+  { years: "2006–2010", name: "The diarist", albums: "Taylor Swift · Fearless · Speak Now",
+    pov: "First person, autobiographical, about high school, first love and small-town life.",
+    who: "Often co-written with Liz Rose, though Speak Now was written entirely alone. Produced with Nathan Chapman.",
+    craft: "Narrative verses that build to a big chorus, named people and places, and fairy-tale imagery such as Romeo and Juliet in \"Love Story\"." },
+  { years: "2012–2017", name: "The pop architect", albums: "Red · 1989 · Reputation",
+    pov: "Still first person, but more knowing. She writes about her own public image and turns it into satire.",
+    who: "Max Martin and Shellback for hooks, and Jack Antonoff, who has worked with her ever since.",
+    craft: "Shorter lines, chantable hooks and a sharper sense of humor. \"Blank Space\" plays the tabloid version of herself." },
+  { years: "2019–2020", name: "The storyteller", albums: "Lover · Folklore · Evermore",
+    pov: "From open-hearted autobiography on Lover to invented characters and third-person narration on Folklore and Evermore.",
+    who: "Joel Little and Antonoff on Lover; Aaron Dessner and Antonoff, working remotely, on the sister albums.",
+    craft: "Linked songs, like the teenage love triangle told across \"cardigan\", \"august\" and \"betty\". There are fewer choruses and more literary language." },
+  { years: "2022–2025", name: "The confessor", albums: "Midnights · The Tortured Poets Department · The Life of a Showgirl",
+    pov: "Back to first person, at her most self-critical (\"It's me, hi, I'm the problem, it's me\") and most explicitly about fame.",
+    who: "Antonoff and Dessner, then a return to Max Martin and Shellback for Showgirl.",
+    craft: "Dense, wordy verses and literary allusion on TTPD, then tighter, theatrical pop on Showgirl." }
+];

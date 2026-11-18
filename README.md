@@ -11,6 +11,7 @@ A revised web version of Kolby White's ArcGIS StoryMap
 - "Where the songs come from" map of nine places tied to specific albums
 - Clickable 2006–2026 timeline that marks the Big Machine → Republic switch and the re-recordings
 - An original summary for each album, with the Wikipedia excerpts kept and credited in collapsible blocks
+- "How the music evolved": genre heatmap, theme matrix, and a four-phase songwriting breakdown
 - Updated masters/re-recordings section (through the May 2025 buyback)
 - Section navigation, full credits, alt text, dark mode, phone layout
 

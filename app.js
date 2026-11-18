@@ -49,6 +49,53 @@
     </article>`;
   }).join("");
 
+  /* ---------- Evolution: genre heatmap + theme matrix ---------- */
+  const head = `<thead><tr><th scope="col" class="corner"><span class="sr">Genre or theme</span></th>${ALBUMS.map((a) =>
+    `<th scope="col"><a href="#${a.id}" style="--c:${a.color}"><i></i><span>${esc(a.styled || a.title)}</span><b>${a.year}</b></a></th>`).join("")}</tr></thead>`;
+  const grid = (rows, levels, cell) => head + "<tbody>" + rows.map((r) =>
+    `<tr><th scope="row">${esc(r.name)}</th>${r.v.map((v, i) => {
+      const a = ALBUMS[i], ex = r.ex && r.ex[a.id];
+      const tip = `${a.title} · ${r.name}: ${levels[v]}${ex ? ` (e.g. “${ex}”)` : ""}`;
+      return `<td tabindex="0" data-tip="${esc(tip)}">${cell(v)}<span class="sr">${esc(levels[v])}${ex ? ", for example " + esc(ex) : ""}</span></td>`;
+    }).join("")}</tr>`).join("") + "</tbody>";
+  $("#genre-grid").innerHTML = `<caption class="sr">Genre prominence by album</caption>` + grid(GENRES, LEVELS, (v) => `<span class="lv lv${v}"></span>`);
+  $("#theme-grid").innerHTML = `<caption class="sr">Themes by album</caption>` + grid(THEMES, THEME_LEVELS, (v) => v ? `<span class="dot d${v}"></span>` : "");
+
+  $("#phases").innerHTML = PHASES.map((p, i) => `
+    <article class="phase">
+      <p class="ph-years">${p.years}</p>
+      <h4>${i + 1}. ${esc(p.name)}</h4>
+      <p class="ph-albums">${esc(p.albums)}</p>
+      <dl>
+        <dt>Point of view</dt><dd>${esc(p.pov)}</dd>
+        <dt>Collaborators</dt><dd>${esc(p.who)}</dd>
+        <dt>Craft</dt><dd>${esc(p.craft)}</dd>
+      </dl>
+    </article>`).join("");
+
+  // shared tooltip for both grids (hover, focus, tap)
+  const tipEl = document.createElement("div");
+  tipEl.className = "tip"; tipEl.setAttribute("role", "status"); document.body.appendChild(tipEl);
+  const showTip = (td) => {
+    tipEl.textContent = td.dataset.tip;
+    const r = td.getBoundingClientRect();
+    tipEl.style.display = "block";
+    const w = tipEl.offsetWidth;
+    tipEl.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, r.left + r.width / 2 - w / 2)) + "px";
+    tipEl.style.top = (r.top + window.scrollY - tipEl.offsetHeight - 8) + "px";
+    document.querySelectorAll("td.hot").forEach((x) => x.classList.remove("hot"));
+    td.classList.add("hot");
+  };
+  const hideTip = () => { tipEl.style.display = "none"; document.querySelectorAll("td.hot").forEach((x) => x.classList.remove("hot")); };
+  document.querySelectorAll(".heat").forEach((t) => {
+    t.addEventListener("mouseover", (e) => { const td = e.target.closest("td[data-tip]"); if (td) showTip(td); });
+    t.addEventListener("mouseleave", hideTip);
+    t.addEventListener("focusin", (e) => { const td = e.target.closest("td[data-tip]"); if (td) showTip(td); });
+    t.addEventListener("focusout", hideTip);
+    t.addEventListener("click", (e) => { const td = e.target.closest("td[data-tip]"); if (td) showTip(td); });
+  });
+  window.addEventListener("scroll", hideTip, { passive: true });
+
   if (typeof L === "undefined") return; // maps need Leaflet
 
   const dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;

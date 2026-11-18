@@ -142,3 +142,54 @@ blockquote cite { display: block; font: normal 14px var(--sans); color: var(--in
   .timeline { overflow-x: auto; padding: 70px 0; }
   .tl-track { width: 720px; }
 }
+
+/* Evolution */
+:root { --lv1: #f0cfd4; --lv2: #d7808d; --lv3: #9b2c3a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --lv1: #61323b; --lv2: #a4505e; --lv3: #e07a88; } }
+:root[data-theme="dark"] { --lv1: #61323b; --lv2: #a4505e; --lv3: #e07a88; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sub-h { font: 700 24px/1.2 var(--serif); margin: 44px 0 4px; }
+.chart-note { color: var(--ink2); font-size: 15px; margin: 0 0 10px; }
+.chart-take { max-width: 760px; font-size: 16px; margin: 16px 0 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--ink2); margin-bottom: 12px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend .lv { width: 18px; height: 14px; }
+.grid-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.heat { border-collapse: separate; border-spacing: 2px; width: 100%; min-width: 820px; table-layout: fixed; }
+.heat th[scope="row"] { text-align: left; font: 500 14px var(--sans); padding-right: 10px; width: 170px; position: sticky; left: 0; background: var(--bg2); z-index: 1; }
+.heat thead th.corner { width: 180px; }
+.heat thead th { font-weight: 400; vertical-align: bottom; padding-bottom: 6px; }
+.heat thead a { display: block; color: var(--ink); text-decoration: none; font-size: 11.5px; line-height: 1.2; font-style: italic; }
+.heat thead a i { display: block; height: 4px; border-radius: 2px; background: var(--c); margin-bottom: 5px; }
+.heat thead a b { display: block; font-style: normal; color: var(--ink2); font-weight: 500; font-size: 11px; margin-top: 2px; }
+.heat thead a:hover span { color: var(--accent); }
+.heat td { height: 38px; padding: 0; text-align: center; cursor: default; border-radius: 4px; outline-offset: 1px; }
+.heat td:focus-visible { outline: 2px solid var(--ink); }
+.heat td.hot { box-shadow: inset 0 0 0 2px var(--ink); }
+.lv { display: block; width: 100%; height: 100%; border-radius: 4px; }
+.lv0 { background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
+.lv1 { background: var(--lv1); } .lv2 { background: var(--lv2); } .lv3 { background: var(--lv3); }
+.themes td { box-shadow: inset 0 0 0 1px var(--line); }
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: middle; }
+.dot.d2 { background: var(--lv3); }
+.dot.d1 { box-shadow: inset 0 0 0 2px var(--lv3); }
+.tip { position: absolute; display: none; z-index: 2000; max-width: 280px; background: var(--ink); color: var(--bg); font-size: 13px; line-height: 1.4; padding: 7px 10px; border-radius: 6px; pointer-events: none; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+.read-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+.read-cards > div, .phase { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.read-cards strong { font-size: 14px; } .read-cards p { margin: 6px 0 0; font-size: 14.5px; color: var(--ink2); line-height: 1.55; }
+.phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
+.ph-years { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--accent); }
+.phase h4 { font: 700 20px/1.2 var(--serif); margin: 4px 0 4px; }
+.ph-albums { font-size: 13px; font-style: italic; color: var(--ink2); margin: 0 0 10px; }
+.phase dl { margin: 0; font-size: 14.5px; line-height: 1.55; }
+.phase dt { font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink2); margin-top: 10px; }
+.phase dd { margin: 2px 0 0; }
+.pens { margin-top: 32px; }
+.pens h4 { font: 700 20px var(--serif); margin: 0 0 6px; }
+.pens ul { padding-left: 18px; font-size: 15.5px; } .pens li { margin-bottom: 8px; }
+@media (max-width: 860px) {
+  .read-cards, .phases { grid-template-columns: 1fr 1fr; }
+  .heat th[scope="row"] { font-size: 13px; }
+  .heat thead th.corner { width: 130px; }
+}
+@media (max-width: 520px) { .read-cards, .phases { grid-template-columns: 1fr; } }
