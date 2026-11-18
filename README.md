@@ -12,10 +12,11 @@ A revised web version of Kolby White's ArcGIS StoryMap
 - Clickable 2006–2026 timeline that marks the Big Machine → Republic switch and the re-recordings
 - An original summary for each album, with the Wikipedia excerpts kept and credited in collapsible blocks
 - "How the music evolved": genre heatmap, theme matrix, and a four-phase songwriting breakdown
+- "Compare the albums": stats dashboard (9 metrics, ranked bars), X/Y scatter with correlation, head-to-head album comparison, and a sortable data table, all sourced from Wikipedia
 - Updated masters/re-recordings section (through the May 2025 buyback)
 - Section navigation, full credits, alt text, dark mode, phone layout
 
 ## Files
-`index.html` (page) · `data.js` (albums, places, tour cities) · `app.js` (rendering + maps) · `styles.css`
+`index.html` (page) · `data.js` (albums, places, tour cities, stats) · `app.js` (rendering + maps) · `compare.js` + `compare.css` (comparison tools) · `styles.css`
 
 Images are served from the original StoryMap's public ArcGIS item resources. Album art and posters © their rights holders, used for non-commercial educational commentary. Fan project, not affiliated with Taylor Swift or her labels.

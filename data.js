@@ -215,3 +215,51 @@ const PHASES = [
     who: "Antonoff and Dessner, then a return to Max Martin and Shellback for Showgirl.",
     craft: "Dense, wordy verses and literary allusion on TTPD, then tighter, theatrical pop on Showgirl." }
 ];
+
+/* ---------- Album statistics ----------
+   Sources: each album's Wikipedia article (length, Metacritic, first week, weeks at No. 1),
+   Wikipedia "Taylor Swift albums discography" (chart peaks, US sales, RIAA), and Wikipedia's
+   "List of Billboard 200 number-one albums" pages for Lover, Folklore and Evermore first-week units.
+   Retrieved November 2026. Order follows ALBUMS. */
+const CHARTS = ["US", "AUS", "CAN", "DEN", "IRE", "NZ", "NOR", "SPA", "SWE", "UK"];
+const STATS = {
+  debut:      { tracks: 11, len: "40:28", mc: 67, fw: 40000,   wk: 0,  sales: 5871000, riaa: 8,  peaks: [5, 33, 14, null, 59, 38, null, null, null, 81] },
+  fearless:   { tracks: 13, len: "53:26", mc: 73, fw: 592000,  wk: 11, sales: 7286000, riaa: 11, peaks: [1, 2, 1, 23, 7, 1, 5, 28, 12, 5] },
+  speaknow:   { tracks: 14, len: "67:28", mc: 77, fw: 1047000, wk: 6,  sales: 4817000, riaa: 6,  peaks: [1, 1, 1, 26, 6, 1, 4, 10, 18, 6] },
+  red:        { tracks: 16, len: "65:09", mc: 77, fw: 1208000, wk: 7,  sales: 4582000, riaa: 8,  peaks: [1, 1, 1, 3, 1, 1, 2, 4, 8, 1] },
+  "1989":     { tracks: 13, len: "48:41", mc: 76, fw: 1287000, wk: 11, sales: 6472000, riaa: 14, peaks: [1, 1, 1, 2, 1, 1, 1, 4, 17, 1] },
+  reputation: { tracks: 15, len: "55:45", mc: 71, fw: 1238000, wk: 4,  sales: 2478000, riaa: 7,  peaks: [1, 1, 1, 3, 1, 1, 1, 3, 2, 1] },
+  lover:      { tracks: 18, len: "61:48", mc: 79, fw: 867000,  wk: 1,  sales: 2317000, riaa: 7,  peaks: [1, 1, 1, 3, 1, 1, 1, 1, 1, 1] },
+  folklore:   { tracks: 16, len: "63:29", mc: 88, fw: 846000,  wk: 8,  sales: 2289000, riaa: 6,  peaks: [1, 1, 1, 1, 1, 1, 1, 2, 3, 1] },
+  evermore:   { tracks: 15, len: "60:38", mc: 85, fw: 329000,  wk: 4,  sales: 913000,  riaa: 4,  peaks: [1, 1, 1, 2, 2, 1, 3, 11, 3, 1] },
+  midnights:  { tracks: 13, len: "44:02", mc: 85, fw: 1578000, wk: 6,  sales: 2814000, riaa: 7,  peaks: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+  ttpd:       { tracks: 16, len: "65:08", mc: 76, fw: 2610000, wk: 17, sales: 3491000, riaa: 8,  peaks: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+  showgirl:   { tracks: 12, len: "41:40", mc: 69, fw: 4002000, wk: 15, sales: 3985000, riaa: 5,  peaks: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] }
+};
+// derived values
+Object.values(STATS).forEach((s) => {
+  const [m, sec] = s.len.split(":").map(Number);
+  s.mins = m + sec / 60;
+  s.n1 = s.peaks.filter((p) => p === 1).length;
+  s.perTrack = s.mins / s.tracks;
+});
+const METRICS = [
+  { key: "fw", name: "First-week US units", short: "First week", fmt: "units", hi: true,
+    note: "Album-equivalent units in the first tracking week (Billboard). Figures before 2014 are pure sales." },
+  { key: "wk", name: "Weeks at No. 1 (Billboard 200)", short: "Weeks at No. 1", fmt: "int", hi: true,
+    note: "Total weeks at the top of the US Billboard 200, consecutive or not. The debut album peaked at No. 5." },
+  { key: "sales", name: "US pure sales", short: "US sales", fmt: "units", hi: true,
+    note: "Copies sold, excluding streams. Older albums have had longer to accumulate; dates of the figures vary." },
+  { key: "riaa", name: "RIAA certification", short: "RIAA", fmt: "plat", hi: true,
+    note: "Multi-platinum level in the US. 10× is Diamond." },
+  { key: "n1", name: "No. 1s across 10 national charts", short: "No. 1 charts", fmt: "of10", hi: true,
+    note: "How many of these charts the album topped: US, Australia, Canada, Denmark, Ireland, New Zealand, Norway, Spain, Sweden, UK." },
+  { key: "mc", name: "Metacritic score", short: "Metacritic", fmt: "score", hi: true,
+    note: "Weighted average of professional reviews, out of 100. Standard edition at release." },
+  { key: "mins", name: "Running time", short: "Length", fmt: "time", hi: null,
+    note: "Standard edition, in minutes. Deluxe editions and The Anthology are longer." },
+  { key: "tracks", name: "Track count", short: "Tracks", fmt: "int", hi: null,
+    note: "Standard edition." },
+  { key: "perTrack", name: "Average song length", short: "Avg. song", fmt: "time", hi: null,
+    note: "Running time divided by track count, standard edition." }
+];

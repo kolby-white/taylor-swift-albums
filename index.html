@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="compare.css">
 </head>
 <body>
 
@@ -27,6 +28,7 @@
   <div class="eranav-inner">
     <a href="#albums">Albums</a>
     <a href="#evolution">Evolution</a>
+    <a href="#compare">Compare</a>
     <a href="#places">Places</a>
     <a href="#masters">Re-recordings</a>
     <a href="#tour">Eras Tour</a>
@@ -110,6 +112,55 @@
       </div>
     </div>
   </div>
+</section>
+
+<section id="compare" class="wrap" aria-labelledby="cmp-h">
+  <h2 id="cmp-h" class="section-h">Compare the albums</h2>
+  <p class="section-sub">Every studio album's sales, chart runs, reviews and running time, in one place. Choose a statistic to rank the albums, plot two statistics against each other, or put two albums head to head.</p>
+
+  <div class="dash">
+    <div class="dash-head">
+      <h3 class="sub-h" id="dash-h">The dashboard</h3>
+      <div class="seg" role="group" aria-label="Sort order">
+        <button type="button" data-sort="chron" class="on">Release order</button>
+        <button type="button" data-sort="rank">Ranked</button>
+      </div>
+    </div>
+    <div class="chips" id="metric-chips" role="group" aria-label="Choose a statistic"></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="bars" id="bars" role="list" aria-labelledby="dash-h"></div>
+    <p class="chart-note" id="metric-note"></p>
+  </div>
+
+  <div class="scatter-wrap">
+    <h3 class="sub-h">Statistic vs. statistic</h3>
+    <p class="chart-note">Does critical acclaim track with sales? Do longer albums chart for longer? Pick any two.</p>
+    <div class="axis-pick">
+      <label>Across (X) <select id="sx"></select></label>
+      <label>Up (Y) <select id="sy"></select></label>
+      <span class="corr" id="corr"></span>
+    </div>
+    <div class="scatter" id="scatter"></div>
+  </div>
+
+  <div class="h2h">
+    <h3 class="sub-h">Head to head</h3>
+    <p class="chart-note">Choose two albums. Bars are scaled to the highest value among all twelve albums.</p>
+    <div class="h2h-pick">
+      <label class="pick-a">Album A <select id="pa"></select></label>
+      <button type="button" class="swap" id="swap" aria-label="Swap albums">⇄</button>
+      <label class="pick-b">Album B <select id="pb"></select></label>
+    </div>
+    <div class="h2h-covers" id="h2h-covers"></div>
+    <div class="h2h-rows" id="h2h-rows"></div>
+    <div class="h2h-profile two-col" id="h2h-profile"></div>
+  </div>
+
+  <details class="source datatable">
+    <summary>Show the full data table</summary>
+    <div class="grid-scroll"><table class="dt" id="dt"></table></div>
+    <p>Sources: each album's Wikipedia article (running time, Metacritic, first-week figures, weeks at No. 1); Wikipedia's <a href="https://en.wikipedia.org/wiki/Taylor_Swift_albums_discography" target="_blank" rel="noopener">Taylor Swift albums discography</a> (chart peaks, US sales, RIAA); Wikipedia's lists of Billboard 200 number-one albums for 2019 and 2020. Retrieved November 2026. Re-recordings are not counted separately.</p>
+  </details>
 </section>
 
 <section id="places" class="band" aria-labelledby="places-h">
@@ -232,5 +283,6 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="data.js"></script>
 <script src="app.js"></script>
+<script src="compare.js"></script>
 </body>
 </html>
