@@ -1,0 +1,45 @@
+/* Era visual identity component */
+.eras-look { margin-top: 8px; }
+.eras-look .sub-h { margin-top: 8px; }
+.ribbon { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; margin: 14px 0 0; }
+.ribbon [role=tab] { display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 6px 4px 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); cursor: pointer; font: inherit; text-align: center; transition: transform .15s, border-color .15s; }
+.ribbon [role=tab]:hover { transform: translateY(-2px); }
+.ribbon [role=tab][aria-selected=true] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.ribbon [role=tab]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.strip { display: flex; flex-direction: column; height: 64px; border-radius: 6px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.strip i { flex: 1; }
+.r-name { font-size: 11.5px; font-style: italic; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; min-height: 2.4em; }
+.r-year { font-size: 11px; color: var(--ink2); font-weight: 500; }
+
+.look-panel { position: relative; margin-top: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.look-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lp-band { height: 14px; background: var(--grad); }
+.lp-grid { display: grid; grid-template-columns: 300px 1fr; gap: 28px; padding: 22px; }
+.lp-cover { margin: 0; }
+.lp-cover img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.lp-kicker { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink2); font-weight: 600; }
+.lp-body h4 { font: 700 clamp(24px, 3vw, 32px)/1.15 var(--serif); margin: 4px 0 14px; border-left: 6px solid var(--era); padding-left: 12px; }
+.lp-body h5 { font: 600 12px var(--sans); text-transform: uppercase; letter-spacing: .08em; color: var(--ink2); margin: 16px 0 6px; }
+.lp-body p { margin: 0; font-size: 16px; }
+.swatches { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.swatches li { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sw { display: block; width: 52px; height: 52px; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(127,127,127,.35); }
+.swatches code { font: 11.5px ui-monospace, Consolas, monospace; color: var(--ink2); }
+.sig { display: flex; gap: 10px; align-items: center; margin-top: 10px !important; font-size: 14.5px !important; }
+.sig .sw { width: 32px; height: 32px; flex: none; }
+.motifs { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.motifs li { font-size: 13.5px; padding: 4px 10px; border-radius: 99px; border: 1px solid var(--line); background: var(--bg); }
+.lp-nav { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+.lp-nav button { font: 500 13.5px var(--sans); font-style: italic; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.lp-nav a { font-size: 14px; }
+
+@media (max-width: 860px) {
+  .ribbon { grid-template-columns: repeat(12, 84px); overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+  .ribbon [role=tab] { scroll-snap-align: start; }
+  .lp-grid { grid-template-columns: 1fr; gap: 18px; }
+  .lp-cover { max-width: 260px; }
+}
+@media (max-width: 520px) {
+  .lp-grid { padding: 16px; }
+  .sw { width: 44px; height: 44px; }
+}

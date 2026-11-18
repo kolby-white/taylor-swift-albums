@@ -19,7 +19,6 @@
   Object.entries(tvYear).forEach(([id, y]) => {
     html += `<a class="tl-ring" href="#${id}" style="left:${pos(y)}%;--c:${byId[id].color}" title="${esc(byId[id].title)} (Taylor's Version)"></a>`;
   });
-  [2006, 2010, 2014, 2018, 2022, 2026].forEach((y) => (html += `<span class="tl-year" style="left:${pos(y)}%">${y}</span>`));
   html += "</div>";
   tl.innerHTML = html;
 

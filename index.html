@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="compare.css">
+<link rel="stylesheet" href="eras.css">
 </head>
 <body>
 
@@ -51,9 +52,16 @@
 </section>
 
 <section class="wrap" aria-labelledby="tl-h">
-  <h2 id="tl-h" class="section-h">Timeline</h2>
-  <p class="section-sub">Select an album to jump to it. The line under the timeline marks the two record labels; "Taylor's Version" re-recordings are shown as rings.</p>
+  <h2 id="tl-h" class="section-h">Timeline and the look of each era</h2>
+  <p class="section-sub">Select an album to jump to it. The line under the timeline marks the two record labels, and "Taylor's Version" re-recordings are shown as rings. Below it, explore how each era looked.</p>
   <div class="timeline" id="timeline"></div>
+
+  <div class="eras-look" id="eras-look">
+    <h3 class="sub-h" id="look-h">Every era has a look</h3>
+    <p class="chart-note">Each strip shows colors sampled from that album's original cover, from lightest to darkest. Select an era to see its visual motifs and how the look reflects the music. Use the arrow keys to step through the eras.</p>
+    <div class="ribbon" id="ribbon" role="tablist" aria-labelledby="look-h"></div>
+    <div class="look-panel" id="look-panel" role="tabpanel" tabindex="0"></div>
+  </div>
 </section>
 
 <section id="albums" class="wrap" aria-labelledby="albums-h">
@@ -284,5 +292,6 @@
 <script src="data.js"></script>
 <script src="app.js"></script>
 <script src="compare.js"></script>
+<script src="eras.js"></script>
 </body>
 </html>
