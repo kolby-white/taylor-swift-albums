@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taylor Swift Albums</title>
+<meta name="description" content="A revised, map-driven story of Taylor Swift's twelve studio albums, the re-recordings, and the Eras Tour. By Kolby White.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-img" src="https://www.arcgis.com/sharing/rest/content/items/54e18ec7155e4b33b04445be6986c460/resources/5b334f9b-5eaf-4e01-b817-5cd1437170e9.jpeg" alt="Taylor Swift performing on stage">
+  <div class="hero-text">
+    <p class="kicker">A story in twelve eras</p>
+    <h1>Taylor Swift Albums</h1>
+    <p class="dek">Twenty years of records, a fight over who owns them, and the tour that sent them around the world.</p>
+    <p class="byline">By Kolby White · Revised edition</p>
+  </div>
+</header>
+
+<nav class="eranav" aria-label="Sections">
+  <div class="eranav-inner">
+    <a href="#albums">Albums</a>
+    <a href="#places">Places</a>
+    <a href="#masters">Re-recordings</a>
+    <a href="#tour">Eras Tour</a>
+    <a href="#films">Films</a>
+    <a href="#encore">2026</a>
+    <a href="#credits">Credits</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="intro wrap">
+  <p class="lede">Taylor Swift released her first album at 16, as a country singer on an independent Nashville label. Twelve albums later she has moved through country, pop, indie folk and synth-pop, won Album of the Year four times (more than any other artist), and taken back ownership of the recordings she lost in 2019. This story follows that arc album by album, then maps where it happened.</p>
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><span class="num">12</span><span class="lbl">studio albums, 2006–2025</span></div>
+    <div class="stat" role="listitem"><span class="num">4</span><span class="lbl">Album of the Year Grammys</span></div>
+    <div class="stat" role="listitem"><span class="num">4</span><span class="lbl">"Taylor's Version" re-recordings</span></div>
+    <div class="stat" role="listitem"><span class="num">149</span><span class="lbl">Eras Tour shows on 5 continents</span></div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="tl-h">
+  <h2 id="tl-h" class="section-h">Timeline</h2>
+  <p class="section-sub">Select an album to jump to it. The line under the timeline marks the two record labels; "Taylor's Version" re-recordings are shown as rings.</p>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<section id="albums" class="wrap" aria-labelledby="albums-h">
+  <h2 id="albums-h" class="section-h">The albums</h2>
+  <div id="album-list"></div>
+</section>
+
+<section id="places" class="band" aria-labelledby="places-h">
+  <div class="wrap">
+    <h2 id="places-h" class="section-h">Where the songs come from</h2>
+    <p class="section-sub">The places that shaped the albums: where Swift grew up, where she signed her first deal, and the real locations written into the lyrics. Select a pin for the story.</p>
+    <div class="map" id="places-map" role="region" aria-label="Map of places connected to Taylor Swift's albums"></div>
+    <ol class="place-list" id="place-list"></ol>
+  </div>
+</section>
+
+<section id="masters" class="wrap" aria-labelledby="masters-h">
+  <h2 id="masters-h" class="section-h">Who owns the music? The re-recordings</h2>
+  <div class="two-col">
+    <div>
+      <p>When Swift left Big Machine Records in 2018, the label kept the <em>masters</em>, the original recordings of her first six albums. In June 2019 Scooter Braun's Ithaca Holdings bought Big Machine, and those masters with it. Swift publicly objected and said she had not been given a fair chance to buy them herself.</p>
+      <p>Because she still held the songwriting (publishing) rights, she could legally record the songs again. New recordings meant new masters that she owned, and she could license those to films, ads and streaming in place of the originals. Each one was labelled <strong>"(Taylor's Version)"</strong> and included unreleased "From the Vault" tracks.</p>
+      <p>Four albums were re-recorded between 2021 and 2023. Then in May 2025 Swift announced that she had bought back the original masters of all six albums, so the plan to re-record <em>Taylor Swift</em> and <em>Reputation</em> was no longer needed.</p>
+      <figure class="video">
+        <img src="https://www.arcgis.com/sharing/rest/content/items/54e18ec7155e4b33b04445be6986c460/resources/d610efaa-4bac-4824-b049-79d52639409f.jpeg" alt="Taylor Swift interviewed on CBS Sunday Morning, 2019" loading="lazy">
+        <figcaption>Swift on <em>CBS Sunday Morning</em> in August 2019, where she first said she would re-record her first six albums. She also discussed <em>Lover</em> and double standards in the music industry.</figcaption>
+      </figure>
+      <details class="source">
+        <summary>Source excerpt (Wikipedia)</summary>
+        <p>"In June 2019, a dispute emerged between American singer-songwriter Taylor Swift and her former record label, Big Machine Records, its founder Scott Borchetta, and its new owner Scooter Braun over the ownership of the masters of her first six studio albums. The private equity firm Shamrock Holdings acquired the masters in 2020, whereupon Swift re-recorded and released four of the albums from 2021 to 2023 to exert control over her music catalog."</p>
+        <p>"By re-recording, Swift is technically covering her own songs as new recordings, resulting in new masters she fully owns, enabling her to control the licensing of her songs for commercial use, known as synchronization, by evading the owners of the older masters and subsequently devaluing them."</p>
+      </details>
+    </div>
+    <ol class="vtimeline" aria-label="Masters dispute timeline">
+      <li><span class="d">Nov 2018</span>Swift signs with Republic Records / Universal Music Group</li>
+      <li><span class="d">Jun 2019</span>Ithaca Holdings (Scooter Braun) acquires Big Machine and the masters</li>
+      <li><span class="d">Aug 2019</span>Swift announces she will re-record on <em>CBS Sunday Morning</em></li>
+      <li><span class="d">Nov 2020</span>Shamrock Holdings buys the masters from Braun</li>
+      <li class="tv"><span class="d">Apr 9, 2021</span><em>Fearless (Taylor's Version)</em></li>
+      <li class="tv"><span class="d">Nov 12, 2021</span><em>Red (Taylor's Version)</em></li>
+      <li class="tv"><span class="d">Jul 7, 2023</span><em>Speak Now (Taylor's Version)</em></li>
+      <li class="tv"><span class="d">Oct 27, 2023</span><em>1989 (Taylor's Version)</em></li>
+      <li class="win"><span class="d">May 2025</span>Swift buys back the masters of all six albums</li>
+    </ol>
+  </div>
+</section>
+
+<section id="tour" class="band" aria-labelledby="tour-h">
+  <div class="wrap">
+    <h2 id="tour-h" class="section-h">The Eras Tour, mapped</h2>
+    <p class="section-sub">March 17, 2023 – December 8, 2024. A three-and-a-half-hour show in ten acts, one for each album "era", performed 149 times in 51 cities. Each circle is a city, sized by the number of shows. Use the buttons to follow the tour leg by leg.</p>
+    <div class="leg-buttons" id="leg-buttons" role="group" aria-label="Filter tour legs"></div>
+    <div class="map tall" id="tour-map" role="region" aria-label="Map of Eras Tour cities"></div>
+    <div class="tour-facts">
+      <div><span class="num">$2B+</span><span class="lbl">The first tour to gross more than $1 billion, and then $2 billion</span></div>
+      <div><span class="num">8</span><span class="lbl">nights at Wembley Stadium, London, the most of any city</span></div>
+      <div><span class="num">44–46</span><span class="lbl">songs per show, plus two acoustic "surprise songs" each night</span></div>
+      <div><span class="num">3</span><span class="lbl">Vienna shows cancelled in August 2024 after a foiled terror plot</span></div>
+    </div>
+    <details class="source">
+      <summary>Source excerpt (Wikipedia)</summary>
+      <p>"Spanning 149 shows in 51 cities across 21 countries and five continents, the Eras Tour had a large cultural and socioeconomic impact. It became the highest-grossing tour of all time and the first to earn over $1 billion and $2 billion in revenue."</p>
+      <p>"Designed as a tribute to Swift's discography across her career since 2006, the Eras Tour covered all of the styles of music seen in her 11 studio albums, including The Tortured Poets Department, which was added in the European leg of the tour after the album's release... According to the music journalist Alexis Petridis, the Eras Tour was a musically eclectic production, consisting of 'dubstep-inspired, dark-hued pop; tweedy folk; monster-chorus-sporting anthems and acoustic guitar-driven songs that show her Nashville grounding'."</p>
+      <p>"A typical show of the Eras Tour lasted 3 hours and 15 minutes. It consisted of between 44 and 46 songs, grouped into 10 acts, representing each 'musical era' of her discography. Each act was characterized by a specific color scheme, costume, and stage design..."</p>
+    </details>
+  </div>
+</section>
+
+<section id="films" class="wrap" aria-labelledby="films-h">
+  <h2 id="films-h" class="section-h">On screen</h2>
+  <p class="section-sub">The tour was filmed and released three times.</p>
+  <div class="films">
+    <figure><img src="https://www.arcgis.com/sharing/rest/content/items/54e18ec7155e4b33b04445be6986c460/resources/4ef39ed9-c20d-4698-97cb-12f4ce106d2f.jpeg" alt="Poster for Taylor Swift: The Eras Tour (Taylor's Version)" loading="lazy"><figcaption><strong>The Eras Tour (Taylor's Version)</strong><span>2024 · 3 h 31 min</span></figcaption></figure>
+    <figure><img src="https://www.arcgis.com/sharing/rest/content/items/54e18ec7155e4b33b04445be6986c460/resources/eFFlSIa7R1sfgbbQMgDXl.jpg" alt="Poster for Taylor Swift: The Eras Tour: The Final Show" loading="lazy"><figcaption><strong>The Eras Tour: The Final Show</strong><span>2025 · 3 h 28 min</span></figcaption></figure>
+    <figure><img src="https://www.arcgis.com/sharing/rest/content/items/54e18ec7155e4b33b04445be6986c460/resources/DM55_MSRqOx0J0UOrWamH.jpg" alt="Poster for Taylor Swift: The End of an Era docuseries" loading="lazy"><figcaption><strong>The End of an Era</strong><span>2025 · docuseries, 6 episodes</span></figcaption></figure>
+  </div>
+</section>
+
+<section id="encore" class="wrap" aria-labelledby="encore-h">
+  <h2 id="encore-h" class="section-h">Latest: <em>The Life of a Showgirl: The Encore</em> (2026)</h2>
+  <div class="two-col">
+    <div>
+      <p>In September 2026 Swift added four tracks to <em>The Life of a Showgirl</em> as a deluxe edition. She revealed the bonus single "Patient Zero" on social media on September 22, confirmed the edition the next day, and released the track on September 25.</p>
+      <blockquote>"The story behind me writing the song 'Patient Zero' is that I was hanging out with a bunch of friends, and one of my friends told us that she had been reached out to by the new girlfriend of an ex of hers, asking for guidance on if she had had the same experiences with this guy."<cite>Taylor Swift, interview with Capital FM</cite></blockquote>
+      <p class="aside"><strong>Fan theory.</strong> Some fans guessed the song was written for a film, as "I Knew It, I Knew You" was for <em>Toy Story 5</em>. After Swift was seen with Tom Cruise at a Chiefs game, they linked it to his film <em>Digger</em>. <span class="src">(via MSN)</span></p>
+      <details class="source">
+        <summary>Source excerpts (Genius)</summary>
+        <p>"Four tracks were added to Taylor Swift's twelfth studio album <a href="https://genius.com/albums/Taylor-swift/The-life-of-a-showgirl" target="_blank" rel="noopener">The Life of a Showgirl</a>. Following the glitz-and-glamour, Swift extends the album's sound with melodic pop tracks."</p>
+        <p>"Swift <a href="https://www.instagram.com/p/DdoYv7eRF8E/" target="_blank" rel="noopener">officially announced</a> the deluxe edition through her social media on September 23, 2026. The day before, Swift <a href="https://www.instagram.com/p/DdmVHc2R30b/" target="_blank" rel="noopener">teased and announced</a> the edition's bonus single, <a href="https://genius.com/Taylor-swift-patient-zero-lyrics" target="_blank" rel="noopener">"Patient Zero"</a>, on social media. The track was released on September 25."</p>
+      </details>
+    </div>
+    <figure class="cover-lg"><img src="https://www.arcgis.com/sharing/rest/content/items/54e18ec7155e4b33b04445be6986c460/resources/IhG49kfwIZRtQUeexAmbG.jpeg" alt="Cover of The Life of a Showgirl: The Encore" loading="lazy"><figcaption>The Life of a Showgirl: The Encore</figcaption></figure>
+  </div>
+</section>
+
+<section id="credits" class="band credits" aria-labelledby="credits-h">
+  <div class="wrap">
+    <h2 id="credits-h" class="section-h">Credits and sources</h2>
+    <div class="two-col">
+      <div>
+        <h3>Text</h3>
+        <ul>
+          <li>Album, re-recording and tour excerpts: Wikipedia, under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Articles used: the individual album pages, <a href="https://en.wikipedia.org/wiki/Taylor_Swift_masters_dispute" target="_blank" rel="noopener">Taylor Swift masters dispute</a>, <a href="https://en.wikipedia.org/wiki/The_Eras_Tour" target="_blank" rel="noopener">The Eras Tour</a>.</li>
+          <li>Eras Tour city list and show counts: <a href="https://en.wikipedia.org/wiki/The_Eras_Tour" target="_blank" rel="noopener">The Eras Tour</a> (Wikipedia). Map points are placed at each stadium's city, so they are approximate.</li>
+          <li>2026 deluxe edition: <a href="https://genius.com/albums/Taylor-swift/The-life-of-a-showgirl" target="_blank" rel="noopener">Genius</a>, MSN, and Capital FM.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Images and maps</h3>
+        <ul>
+          <li>Album covers and film posters © their respective rights holders (Big Machine Records, Republic Records, Taylor Swift Productions, Disney+). Used here for non-commercial educational commentary.</li>
+          <li>Debut cover image via <a href="https://people.com" target="_blank" rel="noopener">People</a>.</li>
+          <li>Basemap © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>. Mapping with <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>.</li>
+        </ul>
+        <p>Original ArcGIS StoryMap by Kolby White. <a href="https://storymaps.arcgis.com/stories/54e18ec7155e4b33b04445be6986c460" target="_blank" rel="noopener">View the original</a> · <a href="recommendations.html">See what changed in this revision</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap foot">This is a fan project and is not affiliated with Taylor Swift or her labels.</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
